@@ -13,9 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('/index');
-});
 Route::get('/pages', function () {
     return view('pages/doctors');
 });
+
+Route::get('doctors', 'DoctorController@index')->name('show-doctors');
+
+Route::get('add-doctor', 'DoctorController@create')->name('add-doctor');
+Route::post('add-doctor', 'DoctorController@store');
+
+Route::get('profile', 'DoctorController@show')->name('show-profile');
+
+Route::get('edit-profile', 'DoctorController@edit')->name('edit-profile');
+Route::post('edit-profile', 'DoctorController@');
